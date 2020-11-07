@@ -1,3 +1,19 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// .home-image {
+//     height: 50%;
+//     width: 50%;
+// }
+
+.jumbotron {
+
+}
+
+@media screen and (min-width: 961px) {
+    .home-image {
+        height: 100%;
+        width: 100%;
+    }
+}
