@@ -1,0 +1,21 @@
+
+<%= simple_form_for(@vinyl) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :artist %>
+    <%= f.input :label %>
+    <%= f.input :genre, collection: ["House", "Techno", "Disco", "Breaks", "Hip-Hop", "Rock", "Metal", "Jazz", "Alternative", "Funk/Soul", "Other"] %>
+    <%= f.input :year, collection: 1950..2020 %>
+    <%= f.input :quality, collection: ["M", "NM", "VG+", "VG", "G+", "G", "F", "P"] %>
+    <%= f.input :price, step: 0.01, min: 0.5 %>
+    <%= f.input :description %>
+    <%= f.input :availability %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

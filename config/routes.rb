@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :vinyls
   devise_for :users
   root "home#page"
 
