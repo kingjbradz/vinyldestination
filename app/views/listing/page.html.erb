@@ -1,0 +1,16 @@
+<div class="row">
+  <% @vinyls.each do |vinyl| %>
+  <div class="col-md-4">
+    <div class="card" style="width: 18rem">
+      <div class="card-body">
+        <h5 class="card-title"><%= vinyl.title %></h5>
+        <p class="card-text"><%= vinyl.description %></p>
+        <p class="card-text"><%= vinyl.price %></p>
+        <%= link_to "Look", vinyl_path(vinyl.id), class:"btn btn-primary
+        btn-right" %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+<!--  image_tag vinyl.image(vinyl.key), class: "card-img-top" -->
