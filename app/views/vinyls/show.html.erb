@@ -1,5 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<% if @vinyl.image.attached? %>
+  <p>
+    <%= cl_image_tag(@vinyl.image.key, crop: :scale, width: 200, cloud_name: 'jbradz') %>
+  </p>
+<% end %>
+
+
 <p>
   <strong>Title:</strong>
   <%= @vinyl.title %>
