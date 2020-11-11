@@ -10,7 +10,7 @@
     <%= f.input :genre, collection: ["House", "Techno", "Disco", "Breaks", "Hip-Hop", "Rock", "Metal", "Jazz", "Alternative", "Funk/Soul", "Other"] %>
     <%= f.input :year, collection: 1950..2020 %>
     <%= f.input :quality, label: "Condition", collection: ["M", "NM", "VG+", "VG", "G+", "G", "F", "P"] %>
-    <%= f.input :price, step: 0.01, min: 0.5, hint: "Prices are to be listed in AUD." %>
+    <%= f.input :price, step: 0.01, min: 0.5, hint: "Prices are to be listed in AUD. Numbers only.", as: :decimal %>
     <%= f.input :description  %>
     <%= f.input :availability, label: "Tick if available now." %>
     <%= f.file_field :image %>
