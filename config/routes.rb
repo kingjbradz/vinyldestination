@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   get 'listing/page', to: "listing#page"
 
   get "/contact", to: "contact#contact", as: "contact"
+
+  get "/users/sign_up", to: "devise/registrations#new"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
