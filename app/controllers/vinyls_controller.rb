@@ -25,7 +25,7 @@ class VinylsController < ApplicationController
   # POST /vinyls.json
   def create
     @vinyl = Vinyl.new(vinyl_params)
-    # @vinyl.user_id = current_user.id
+  
 
     respond_to do |format|
       if @vinyl.save
