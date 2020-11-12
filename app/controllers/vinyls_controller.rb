@@ -14,7 +14,7 @@ class VinylsController < ApplicationController
 
   # GET /vinyls/new
   def new
-    @vinyl = Vinyl.new
+    @vinyl = current_user.vinyls.build
   end
 
   # GET /vinyls/1/edit
@@ -24,7 +24,7 @@ class VinylsController < ApplicationController
   # POST /vinyls
   # POST /vinyls.json
   def create
-    @vinyl = Vinyl.new(vinyl_params)
+    @vinyl = current_user.vinyls.build(vinyl_params)
   
 
     respond_to do |format|

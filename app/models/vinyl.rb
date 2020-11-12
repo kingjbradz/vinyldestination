@@ -4,4 +4,6 @@ class Vinyl < ApplicationRecord
     validates_presence_of :title, :artist, :label, :genre, :year, :quality, :price
 
     has_one_attached :image
+
+    belongs_to :user
 end
