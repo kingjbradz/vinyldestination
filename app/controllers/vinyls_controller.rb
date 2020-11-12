@@ -1,4 +1,5 @@
 class VinylsController < ApplicationController
+  before_action :check_roles
   before_action :set_vinyl, only: [:show, :edit, :update, :destroy]
 
   # GET /vinyls
@@ -66,6 +67,12 @@ class VinylsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_vinyl
       @vinyl = Vinyl.find(params[:id])
+    end
+
+    def check_roles
+      if !current_user.has_role?(:admin)
+      
+      end
     end
 
     # Only allow a list of trusted parameters through.

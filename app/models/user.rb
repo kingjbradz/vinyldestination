@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   rolify
+  after_create :assign_default_role
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -10,4 +11,8 @@ class User < ApplicationRecord
   validates_presence_of :username
 
   has_many :vinyls
+
+  def assign_default_role
+    self.add_role(:collector)
+  end
 end
