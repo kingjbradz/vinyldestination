@@ -90,13 +90,14 @@ class VinylsController < ApplicationController
   end
 
 
-  # change to views later
   def success
-    render plain: "Success!"
+    flash[:alert] = "Payment was successful! Go you!"
+    redirect_to root_path
   end
 
   def cancel
-    render plain: "The transaction was cancelled!"
+    flash[:alert] = "The transaction was cancelled!"
+    redirect_to root_path
   end
 
   private
