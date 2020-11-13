@@ -1,6 +1,7 @@
 class VinylsController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [:buy]
   before_action :check_roles
-  before_action :set_vinyl, only: [:show, :edit, :update, :destroy]
+  before_action :set_vinyl, only: [:show, :edit, :update, :destroy, :buy]
 
   # GET /vinyls
   # GET /vinyls.json
@@ -61,6 +62,41 @@ class VinylsController < ApplicationController
       format.html { redirect_to vinyls_url, notice: 'Vinyl was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  # put in paths later
+  def buy
+    Stripe.api_key = ENV['STRIPE_API_KEY']
+    session = Stripe::Checkout::Session.create({
+      payment_method_types: ['card'],
+      mode: 'payment',
+      success_url: success_url(params[:id]),
+      cancel_url: cancel_url(params[:id]),
+      line_items: [
+        {
+          price_data: {
+            currency: 'aud',
+            product_data: {
+              name: @vinyl.title
+            },
+            unit_amount: (@vinyl.price * 100).to_i
+          },
+          quantity: 1
+        }
+      ]
+    })
+
+    render json: session
+  end
+
+
+  # change to views later
+  def success
+    render plain: "Success!"
+  end
+
+  def cancel
+    render plain: "The transaction was cancelled!"
   end
 
   private
