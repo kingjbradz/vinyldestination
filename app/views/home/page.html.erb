@@ -9,7 +9,12 @@
       <p>Welcome, <%= current_user.username%>!</p>
       <%= link_to "Go Browsing", listing_page_path, class: "btn btn-primary btn-lg" %>
     <%= link_to "Create Listing", new_vinyl_path, class: "btn btn-primary btn-lg" %>
+    <% if current_user.has_role?(:admin) %>
+    <%= link_to "All Records", vinyls_path, class: "btn btn-primary btn-lg" %>
+    <%= link_to "All Users", users_path, class: "btn btn-primary btn-lg" %>
+    <% else %>
     <%= link_to "My Records", vinyls_path, class: "btn btn-primary btn-lg" %>
+    <% end %>
     <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary btn-lg" %>
   </p>
 </div>

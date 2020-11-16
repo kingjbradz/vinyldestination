@@ -1,7 +1,8 @@
 class VinylsController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: [:buy]
+  load_and_authorize_resource
   before_action :check_roles
   before_action :set_vinyl, only: [:show, :edit, :update, :destroy, :buy]
+
 
   # GET /vinyls
   # GET /vinyls.json
@@ -43,6 +44,7 @@ class VinylsController < ApplicationController
   # PATCH/PUT /vinyls/1
   # PATCH/PUT /vinyls/1.json
   def update
+    authorize! :update, @vinyl
     respond_to do |format|
       if @vinyl.update(vinyl_params)
         format.html { redirect_to @vinyl, notice: 'Vinyl was successfully updated.' }
@@ -57,6 +59,7 @@ class VinylsController < ApplicationController
   # DELETE /vinyls/1
   # DELETE /vinyls/1.json
   def destroy
+    authorize! :destroy, @vinyl
     @vinyl.destroy
     respond_to do |format|
       format.html { redirect_to vinyls_url, notice: 'Vinyl was successfully destroyed.' }

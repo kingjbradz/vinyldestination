@@ -39,6 +39,7 @@ gem 'rolify'
 gem 'cloudinary'
 gem 'stripe'
 gem "activestorage-cloudinary-service", "~> 0.2.3"
+gem 'cancancan'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

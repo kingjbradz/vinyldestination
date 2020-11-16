@@ -19,6 +19,7 @@
   </thead>
 
   <tbody>
+    
     <% @vinyls.each do |vinyl| %>
       <tr>
         <td><%= vinyl.title %></td>
@@ -35,6 +36,7 @@
         <td><%= link_to 'Destroy', vinyl, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+
   </tbody>
 </table>
 

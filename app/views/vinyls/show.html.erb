@@ -75,7 +75,7 @@
     })
 </script>
 
-<% if current_user.has_role?(:admin) %>
+<% if can? :update, @vinyl %>
 <%= link_to 'Edit', edit_vinyl_path(@vinyl) %> |
 <%= link_to 'Destroy', @vinyl, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <% end %>
