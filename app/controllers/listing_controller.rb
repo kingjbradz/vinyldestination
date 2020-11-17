@@ -1,5 +1,5 @@
 class ListingController < ApplicationController
   def page
-    @vinyls = Vinyl.all
+    @vinyls = Vinyl.where(availability: true)
   end
 end
