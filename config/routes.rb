@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   get "vinyls/:id/success", to: "vinyls#success", as: "success"
   get "vinyls/:id/cancel", to: "vinyls#cancel", as: "cancel"
 
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

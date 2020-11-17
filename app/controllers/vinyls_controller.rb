@@ -8,7 +8,11 @@ class VinylsController < ApplicationController
   # GET /vinyls
   # GET /vinyls.json
   def index
+    if current_user.has_role?(:admin)
     @vinyls = Vinyl.all
+    else
+    @vinyls = current_user.vinyls.all
+    end
   end
 
   # GET /vinyls/1
