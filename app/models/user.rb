@@ -12,6 +12,11 @@ class User < ApplicationRecord
 
   has_many :vinyls
 
+  def assign_admin_default
+    user = User.find_by_id(1)
+    user.add_role(:admin)
+  end
+
   def assign_default_role
     self.add_role(:collector)
   end

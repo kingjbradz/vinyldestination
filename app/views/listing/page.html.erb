@@ -9,6 +9,7 @@
   <% @vinyls.each do |vinyl| %>
   <div class="col-md-4">
     <div class="card" style="width: 18rem">
+      <%= cl_image_tag(vinyl.image.key, crop: :scale, width: 200, cloud_name: 'jbradz') if vinyl.image.attached? %>
       <div class="card-body">
         <h5 class="card-title"><%= vinyl.title %></h5>
         <p class="card-text"><%= vinyl.description %></p>
