@@ -1,4 +1,5 @@
 class VinylsController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [:buy]
   load_and_authorize_resource
   before_action :check_roles
   before_action :set_vinyl, only: [:show, :edit, :update, :destroy, :buy]
