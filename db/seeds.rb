@@ -9,5 +9,6 @@ Vinyl.create!([{
     quality: "VG+",
     price: 5.0,
     description: "This is a test",
-    user_id: 1
+    user_id: 1,
+    availability: false
 }])
