@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   get "vinyls/:id/cancel", to: "vinyls#cancel", as: "cancel"
 
   match '/404', to: "errors#not_found", via: :all
-  match '/500', to: "errors#internal_server_error", via: :all
   get '*path', to: "errors#not_found"
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
