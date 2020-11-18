@@ -115,9 +115,6 @@ class VinylsController < ApplicationController
     end
 
     def check_roles
-      if !current_user.has_role?(:admin)
-      
-      end
     end
 
     # Only allow a list of trusted parameters through.
