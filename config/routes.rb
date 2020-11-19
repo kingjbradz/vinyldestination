@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get "vinyls/:id/success", to: "vinyls#success", as: "success"
   get "vinyls/:id/cancel", to: "vinyls#cancel", as: "cancel"
 
+  match '/500', to: "errors#internal_server_error", via: :all
   match '/404', to: "errors#not_found", via: :all
   get '*path', to: "errors#not_found"
 

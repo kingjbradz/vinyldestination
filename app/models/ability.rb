@@ -12,6 +12,7 @@ class Ability
       else
         can :manage, Vinyl, user_id: user.id
         can :read, :all
+        can :buy, :all
       end
   end
 end
