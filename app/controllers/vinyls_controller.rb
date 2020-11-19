@@ -99,6 +99,8 @@ class VinylsController < ApplicationController
 
 
   def success
+    @vinyl.availability = false
+    @vinyl.save!
     flash[:alert] = "Payment was successful! Go you!"
     redirect_to root_path
   end
