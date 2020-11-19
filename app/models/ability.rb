@@ -13,6 +13,8 @@ class Ability
         can :manage, Vinyl, user_id: user.id
         can :read, :all
         can :buy, :all
+        can :success, :all
+        can :cancel, :all
       end
   end
 end
